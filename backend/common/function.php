@@ -46,7 +46,7 @@ function uploadFile($upload, $name)
 function uploadProgramImages($upload, $name)
 {
     $fileName = " ";
-    $SongName = $name;
+   
 
     if (isset($upload['error'])) {
         if ($upload['error'] == 0) {
@@ -55,7 +55,7 @@ function uploadProgramImages($upload, $name)
             $path = $upload['name'];
             $ext = pathinfo($path, PATHINFO_EXTENSION);
 
-            $fileName = $SongName . rand(10000, 10000000) . "_" . rand(100000, 100000000) . "_" . time();
+            $fileName = $name . rand(10000, 10000000) . "_" . rand(100000, 100000000) . "_" . time();
             $fileName = strtolower(str_replace(" ", "_", $fileName));
             $fileName .= "." . $ext;
 
