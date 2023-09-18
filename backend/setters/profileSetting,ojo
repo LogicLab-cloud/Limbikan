@@ -1,0 +1,19 @@
+<?php
+
+require '../common/connfig.php';
+require '../common/function.php';
+require '../common/conn.php';
+
+$name = "logo";
+
+$logoUrl = uploadLogo($_FILES["Logo"], "prince");
+
+echo $logoUrl;
+die();
+$sq1 = "UPDATE orgprofile SET logo = '$logoUrl' WHERE id=1";
+if ($conn->query($sq1) === TRUE) {
+    echo "successfully";
+} else {
+    echo "error";
+}
+header("Location: ../../admin/index.html");
